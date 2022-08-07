@@ -1,26 +1,126 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   html {
-    color-scheme: dark;
+    font-family: 'Chakra Petch', sans-serif;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@layer components {
+  .sidebar{
+    @apply fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-secondary 
+    text-white shadow-lg transition-colors duration-200 ease-linear
+
   }
+  .sidebar-icon{
+    @apply relative flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto bg-neutral-700 shadow-lg 
+    text-highlight1-1 hover:bg-highlight1-1 hover:text-primary rounded-3xl hover:rounded-xl
+    transition-all duration-100 ease-linear;
+
+  }
+  .sidebar-tooltip{
+    @apply absolute w-auto p-2 m-2 min-w-max left-14
+    rounded-md shadow-md text-white bg-secondary text-xs font-bold opacity-0 transition-all duration-200
+  }
+  .reader-option-container-grid{
+    @apply w-full bg-zinc-700 rounded-xl grid grid-cols-2 place-items-center
+  }
+  .reader-option-container-grid-split{
+    @apply grid grid-cols-2 place-items-center gap-2
+  }
+  .reader-option-container{
+    @apply w-full bg-zinc-700 rounded-xl flex items-center justify-center
+  }
+
+  .reader-option-icon{
+    @apply relative flex items-center justify-center h-16 w-16 mt-2 mb-2 bg-primary shadow-lg text-highlight1-1 hover:bg-highlight1-1 hover:text-primary rounded-xl transition-all duration-100 ease-linear
+  }
+  .reader-option-icon-small{
+    @apply relative flex items-center justify-center w-full h-full text-highlight1-1 hover:bg-highlight1-1 hover:text-primary rounded-xl transition-all duration-100 ease-linear
+  }
+  .loading-icon{
+    @apply border-solid border-2 h-4 w-4 border-highlight1-1  animate-spin
+  }
+  .reader-default{
+    @apply bg-secondary
+  }
+  .reader-vertical{
+    @apply max-h-screen w-auto 
+  }
+  .reader-horizontal{
+    @apply w-screen overflow-hidden relative flex-grow 
+  }
+  .reader-natural{
+    @apply min-w-fit 
+  }
+}
+
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 1rem; /* Set a specific slider handle width */
+  height: 1rem; /* Slider handle height */
+  border-radius: 1rem;
+  background: rgb(242 239 138);
+
+}
+
+.reader-history::-webkit-scrollbar{
+  display:none;
+}
+.reader-history{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.reader-container{
+  width: 100vw;
+  max-width: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(43 43 43);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0.1rem;
+  background: rgb(28 28 28);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(43 43 43);
+  border-radius: 0.1rem;
+  border: 2px solid rgb(43 43 43);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43 43 43);
+}
+
+
+.page-selector {
+  -webkit-appearance: none;
+  background-color: transparent;
+  transform: rotate(90deg);
+  height: 100%;
+  width: 100vh;
+}
+
+.reader-page-selector-text{
+  text-align: center;
+  
+  font-size: .75rem;
+  line-height: 100%;
+}
+
+.hide-tap{
+  -webkit-tap-highlight-color: transparent;
 }
