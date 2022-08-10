@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const SideBar = () => {
     const router = useRouter();
     return (
-        <div className={"sidebar ".concat(router.pathname == "/reader/[albumID]" && "-translate-x-full")}>
+        <div className={" select-none sidebar ".concat(router.pathname == "/reader/[albumID]" && "-translate-x-full")}>
 
             <SideBarIcon link="/" text="Home" icon={<IoIosHome size="30px" />} />
             <SideBarIcon link="/reader" text="Reader" icon={<IoIosBook size="30px" />} />

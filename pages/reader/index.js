@@ -3,8 +3,10 @@ import { useState, Fragment, useEffect, useRef } from 'react';
 import {AiOutlineFileSearch, AiFillCloseCircle} from "react-icons/ai"
 import {BsFillQuestionDiamondFill} from "react-icons/bs"
 import { Dialog, Transition, Tab } from '@headlessui/react'
+import {BsFillBookFill} from "react-icons/bs"
 import { object } from 'underscore';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -36,11 +38,11 @@ const Reader = () => {
             for (const [k,v] of Object.entries(History)) {
                 temp.push(
                 <div key={v.date} className="flex mb-2">
-                    <div onClick={()=>Search(k, v.currentpage)} className="flex bg-secondary h-8 rounded-l-md w-64 sm:w-96 last:mb-0 p-2 hover:bg-zinc-900 transition-colors ease-linear duration-100 flex-1" >
+                    <div onClick={()=>Search(k, v.currentpage)} className="flex h-10 bg-secondary rounded-l-md w-64 sm:w-96 last:mb-0 p-2 hover:bg-zinc-900 transition-colors ease-linear duration-100 flex-1" >
                         <p className="flex-1 overflow-hidden" >{v.title}</p>
                         <p>{v.currentpage}/{v.pages}</p>
                     </div>
-                    <AiFillCloseCircle size={25} className="bg-secondary pr-2 h-8 rounded-r-md" onClick={()=>{setHistory(c=>{const copy = {...c}; delete copy[k]; return copy})}} />
+                    <AiFillCloseCircle size={25} className="bg-secondary pr-2 h-10 rounded-r-md" onClick={()=>{setHistory(c=>{const copy = {...c}; delete copy[k]; return copy})}} />
                 </div>
                 )
             }  
@@ -51,9 +53,9 @@ const Reader = () => {
     }
 
     const Search = (code, page) => {
-        // const path = new URL(code).pathname
-        // https://imgur.com/gallery/lmfeCdh
         code = code.replace(/\s/g, ''); 
+        const link = code.split("/")
+        code = link[link.length-1]
         if (code.length){
             fetch("https://api.imgur.com/3/album/" + code, {headers: {'Authorization': 'Client-ID 14f26bd597c439e'}})
             .then(res => {
@@ -72,6 +74,12 @@ const Reader = () => {
 
     return (
         <> 
+            <Head>
+                <title>Album Reader</title>
+                <meta name="description" content="Album Reader" />
+                <link rel="icon" href="book.png" />
+            </Head>
+
             <Transition appear show={InfoOpen} as={Fragment} >
                 <Dialog as="div" className="relative z-10" onClose={()=>setInfoOpen(false)}>
                     <Transition.Child as={Fragment}
@@ -85,7 +93,7 @@ const Reader = () => {
                         <div className="fixed inset-0 bg-secondary bg-opacity-75" />
                     </Transition.Child>
                     <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex pl-16 min-h-full items-center justify-center p-4 text-center">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-200"
@@ -129,8 +137,8 @@ const Reader = () => {
 
 
             <div className="bg-primary min-h-screen flex flex-col justify-center items-center selection:bg-highlight1-1">
-                
-                <div className="flex justify-center items-center text-white text-4xl mb-4 w-64 sm:w-96  px-2">
+            
+                <div className="flex justify-center items-center text-white text-4xl mb-4 w-64 sm:w-96 px-2">
                     <p className="flex-1 select-none ">Album Reader</p>
                     <BsFillQuestionDiamondFill onClick={()=>{setInfoOpen(true)}} className="hover:scale-110 transition-transform ease-linear" size={35}/>
                 </div>
@@ -148,45 +156,46 @@ const Reader = () => {
                 <div className="h-8 mt-2 text-center text-red-300">
                     {ErrorText}
                 </div>
+                
+                <div className="bg-primary w-full flex flex-col justify-center items-center">
+                    <Tab.Group>
+                        <Tab.List className="text-white w-64 sm:w-96 flex space-x-2 select-none">
+                            <Tab 
+                            className={({selected}) => classNames(" transition-colors ease-linear duration-100 w-full bg-secondary rounded-md p-2", selected ? "bg-white text-secondary" : "hover:bg-zinc-900")}
+                            >History</Tab>
+                            <Tab 
+                            className={({selected}) => classNames(" transition-colors ease-linear duration-100 w-full bg-secondary rounded-md p-2", selected ? "bg-white text-secondary" : "hover:bg-zinc-900")} 
+                            >Sample</Tab>
+                        </Tab.List>
+                    
+                        <Tab.Panels className="mt-4 h-72 w-64 sm:w-96 text-white select-none ">
+                            <Tab.Panel className="overflow-scroll reader-history">
+                                { CreateHistory() }
+                            </Tab.Panel>
+                            <Tab.Panel className="flex sm:space-x-2 flex-col sm:flex-row sm:space-y-0 space-y-2">
+                                <Link href="/reader/lmfeCdh">
+                                    <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
+                                        Comic 
+                                        <p className="text-left text-sm mt-1 flex-1">Read left to right.</p><p>Adventure</p>
+                                    </div>
+                                </Link>
+                                <Link href="/reader/Wht7z">
+                                    <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
+                                        Manga 
+                                        <p className="text-left text-sm mt-1 flex-1">Read right to left.</p><p>Horror</p>
+                                    </div>
+                                </Link>
+                                <Link href="/reader/IUxr6ag">
+                                    <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
+                                        Manhwa 
+                                        <p className="text-left text-sm mt-1 flex-1">Read top to bottom.</p><p>Action</p>
+                                    </div>
+                                </Link>
 
-
-                <Tab.Group>
-                    <Tab.List className="text-white w-64 sm:w-96 flex space-x-2 select-none">
-                        <Tab 
-                        className={({selected}) => classNames("h-8 transition-colors ease-linear duration-100 w-full bg-secondary rounded-md p-2", selected ? "bg-white text-secondary" : "hover:bg-zinc-900")}
-                        >History</Tab>
-                        <Tab 
-                        className={({selected}) => classNames("h-8 transition-colors ease-linear duration-100 w-full bg-secondary rounded-md p-2", selected ? "bg-white text-secondary" : "hover:bg-zinc-900")} 
-                        >Sample</Tab>
-                    </Tab.List>
-                    <Tab.Panels className="mt-4 w-64 sm:w-96 h-40 text-white select-none">
-                        <Tab.Panel className="overflow-scroll h-40 reader-history">
-                            { CreateHistory() }
-                        </Tab.Panel>
-                        <Tab.Panel className="h-40 flex space-x-2">
-                            <Link href="/reader/lmfeCdh">
-                                <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
-                                    Comic 
-                                    <p className="text-left text-sm mt-2 flex-1">Read left to right.</p><p>Adventure</p>
-                                </div>
-                            </Link>
-                            <Link href="/reader/Wht7z">
-                                <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
-                                    Manga 
-                                    <p className="text-left text-sm mt-2 flex-1">Read right to left.</p><p>Horror</p>
-                                </div>
-                            </Link>
-                            <Link href="/reader/IUxr6ag">
-                                <div className="w-full bg-secondary hover:bg-zinc-900 rounded-md text-left p-2 flex flex-col" >
-                                    Manhwa 
-                                    <p className="text-left text-sm mt-2 flex-1">Long pages, read top to bottom while scrolling.</p><p>Action</p>
-                                </div>
-                            </Link>
-
-                        </Tab.Panel>
-                    </Tab.Panels>
-                </Tab.Group>
-            
+                            </Tab.Panel>
+                        </Tab.Panels>
+                    </Tab.Group>
+                </div>
 
             </div>
 

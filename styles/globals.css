@@ -10,13 +10,13 @@
 
 @layer components {
   .sidebar{
-    @apply fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-secondary 
+    @apply fixed top-0 left-0 h-screen w-16 p-2 gap-y-2 m-0 flex flex-col bg-secondary 
     text-white shadow-lg transition-colors duration-200 ease-linear
 
   }
   .sidebar-icon{
     @apply relative flex items-center justify-center 
-    h-12 w-12 mt-2 mb-2 mx-auto bg-neutral-700 shadow-lg 
+    h-12 w-12 bg-neutral-700 shadow-lg 
     text-highlight1-1 hover:bg-highlight1-1 hover:text-primary rounded-3xl hover:rounded-xl
     transition-all duration-100 ease-linear;
 
@@ -55,6 +55,9 @@
   }
   .reader-natural{
     @apply min-w-fit 
+  }
+  .project-entry{
+    @apply hover:tracking-wide transition-all ease-in-out duration-500  hover:text-highlight1-1
   }
 }
 
@@ -123,4 +126,48 @@
 
 .hide-tap{
   -webkit-tap-highlight-color: transparent;
+}
+
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  border: 1px solid #000;
+}
+
+.box:after {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-top: 3px solid blue;
+  border-right: 3px solid blue;
+}
+.box-span:before {
+  display: block;
+  content: "";
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  border-bottom: 3px solid orange;
+  border-left: 3px solid orange;
+}
+
+.spacer {
+  min-width: 80px;
+  max-width: 120px;
+}
+
+.main-content{
+  min-height: 10rem;
+}
+
+.main-list{
+  list-style-type: square;
 }

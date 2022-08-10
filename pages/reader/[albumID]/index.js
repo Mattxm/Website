@@ -13,7 +13,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import Head from 'next/head'
-import DownloadManager from './download';
+import DownloadManager from '../../../components/download';
 
 const Album = () => {
     const router = useRouter();
@@ -144,6 +144,7 @@ const Album = () => {
             <Head>
                 <title>{(Data.success ? Data.data.title ? Data.data.title : "Untitled" : "Title").concat(" - Imgur Reader") }</title>
                 <meta name="Imgur Reader" content="Display Imgur Albums in a customizable format." />
+                <link rel="icon" href="../book.png" />
             </Head>
             <div className="group z-10 fixed top-0 right-0 hover:-translate-x-16 h-screen w-10 transition-all duration-300">
                 <div className="reader-history h-full overflow-scroll translate-x-10 bg-secondary w-16 shadow-lg transition-all ease-linear flex flex-col">
