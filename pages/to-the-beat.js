@@ -1,28 +1,36 @@
 import { FirebaseError, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore/lite';
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useCollectionData } from "react-firebase-hooks/firestore"
+import fbConfig from "../components/fbconfig"
 
-const app = initializeApp({    
-    apiKey: "AIzaSyDW1hfoqP2TdoxWS9_mauO-3EGmP2KPnO8",
-    authDomain: "beat-d4291.firebaseapp.com",
-    projectId: "beat-d4291",
-    storageBucket: "beat-d4291.appspot.com",
-    messagingSenderId: "198057526075",
-    appId: "1:198057526075:web:07e20e8f8772026cf52d1e",
-    measurementId: "G-73ETXJF12Y"
-});
+const app = initializeApp(fbConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-
+const scoresRef = collection(db, "scores");
+const scoresSnap = await getDocs(scoresRef)
 
 
 import { useEffect, useState } from "react";
 
+function ScoreHistory() {
+    return (
+        <>
+            a
+        </>
+    );
+};
+
 const beat = () => {
     const [user] = useAuthState(auth);
+
+
+    useEffect(() => {
+      console.log(scoresSnap)
+    }, [scoresSnap])
+    
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider);
@@ -46,11 +54,17 @@ const beat = () => {
                         </button>
                     </div>
                     }
+                    prev stores
+                    <div>
+                        {ScoreHistory()}
+                    </div>
                 </div>
             </div>
         </>
         
     );
 }
+
+
 
 export default beat;
