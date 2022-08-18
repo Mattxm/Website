@@ -7,5 +7,6 @@ const fbConfig = {
     appId: "1:198057526075:web:07e20e8f8772026cf52d1e",
     measurementId: "G-73ETXJF12Y"
   };
+  
 
 export default fbConfig;
