@@ -1,14 +1,13 @@
 import Head from 'next/head'
 import React from 'react'
-import {AiFillGithub, AiOutlineMail, AiFillLinkedin} from "react-icons/ai"
+import {AiFillGithub, AiFillLinkedin} from "react-icons/ai"
 import {FaItchIo} from "react-icons/fa"
 import {GiHamburgerMenu} from "react-icons/gi";
 import {ImMail, ImMenu} from "react-icons/im"
 import Link from 'next/link';
 import Image from 'next/future/image'
 
-export default function Home() {
-
+const Home = () => {
   return (
     <div className="text-zinc-200">
         <Head>
@@ -18,56 +17,46 @@ export default function Home() {
         </Head>
         <div className="bg-secondary min-h-screen flex flex-col justify-center items-center selection:bg-highlight1-1 h-screen">
             <div className="flex-wrap flex z-10 select-none flex-col h-full items-center justify-center p-10" >
-              <div className="flex flex-col md:flex-row max-w-6xl">
+              <div className="flex flex-col max-w-6xl  h-64">
                 <div className="flex flex-col basis-2/3 mb-10 flex-1">
                   <div className="flex flex-row">
-                    <Image className="rounded-full p-1 h-16 w-16 bg-white" src="https://i.imgur.com/poWzUZl.gif" height={50} width={50}/>
+                    <Image alt="picture" className="rounded-full p-1 h-16 w-16 bg-white" src="https://i.imgur.com/poWzUZl.gif" height={50} width={50}/>
                     <div  className="flex flex-col pl-4">
-                      <h1 className="text-5xl p-0 m-0 leading-none" >Matthew Miller</h1>
+                      <h1 className="sm:text-5xl text-3xl p-0 m-0 leading-none" >Matthew Miller</h1>
                       <h2 className="indent-1 m-0 p-0 text-zinc-300">Software & Game Developer</h2> 
                     </div>
-                  </div>
-                  <div className="main-content pt-1">
-                    <p className="text-base">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    </p>
+                    
                   </div>
                 </div>
-                <div className="spacer"/>
-                <div className=" w-52">
+                <div className="">
                   <h1 className="text-4xl" >Projects</h1>
                   <hr className="mb-2 mt-1"></hr>
                   
-                  <h2>Web Development</h2>
+                  <h2>React / Next.js</h2>
                   <ul className="main-list text-base indent-4 list-inside">
-                    <li className="project-entry ">Album Reader</li>
-                    <li className="project-entry ">To The Beat</li>
+                    <li className="project-entry "><Link href="/reader">Album Reader</Link></li>
+                    {/* <li className="project-entry ">To The Beat</li> */}
                   </ul>
 
-                  <h2>Game Development</h2>
+                  <h2>Unreal Engine</h2>
                   <ul className="main-list text-base indent-4 list-disc list-inside">
-                    <li className="project-entry ">Targeting System</li>
-                    <li className="project-entry ">Barrier Down</li>
+                    <li className="project-entry "><a href="https://mattxm.itch.io/targeting-system">Targeting System</a></li>
+                    <li className="project-entry "><a href="https://mattxm.itch.io/barrier-down">Barrier Down</a></li>
                   </ul>
                 </div>
               </div>
-              <div className="h-20 text-right flex w-full text-md fixed bottom-0 left-0 p-8">
+              <div className="h-20 justify-center flex w-full text-md fixed bottom-0 left-0  p-2">
                 <ul className="flex space-x-2 pb-4 items-center content-center">
-                  <li><Link href="https://github.com/Mattxm"><AiFillGithub className="hover:text-white text-zinc-400 transition-colors ease-linear" size="37"/></Link></li>
-                  <li><Link href="https://mattxm.itch.io/"><FaItchIo className=" hover:text-white text-zinc-400 transition-colors ease-linear" size="35"/></Link></li>
-                  <li><Link href="https://www.linkedin.com/in/mattxm/"><AiFillLinkedin className="hover:text-white text-zinc-400 transition-colors ease-linear" size="40"/></Link></li>
-                  <li><Link href="mailto:mattxm@live.com"><ImMail className="hover:text-white text-zinc-400 transition-colors ease-linear" size="32"/></Link></li>
+                  <li><a href="https://github.com/Mattxm"><AiFillGithub className="hover:text-white text-zinc-400 transition-colors ease-linear" size="37"/></a></li>
+                  <li><a href="https://mattxm.itch.io/"><FaItchIo className=" hover:text-white text-zinc-400 transition-colors ease-linear" size="35"/></a></li>
+                  <li><a href="https://www.linkedin.com/in/mattxm/"><AiFillLinkedin className="hover:text-white text-zinc-400 transition-colors ease-linear" size="40"/></a></li>
+                  <li><a href="mailto:mattxm@live.com"><ImMail className="hover:text-white text-zinc-400 transition-colors ease-linear" size="32"/></a></li>
                 </ul>
-                <div className="flex-1"/>
-                <p>Mattxm.com</p>
-              </div>
-              <div className="fixed top-0 right-0 p-8 duration-200" >
-                <div className="duration-200 transition-all ease-in-out hover:text-highlight1-1">
-                  <GiHamburgerMenu size="25"/>
-                </div>
               </div>
             </div>
           </div>
     </div>
   )
 }
+
+export default Home;

@@ -296,7 +296,7 @@ const AlbumSpacing = (s) => {
 const AlbumImage = ({link, height, width, spacing, layout, scaling, flow}) => {
     return (
         <div className={"bg-primary last:mb-0 flex items-center justify-center h-full ".concat(scaling == 2 ? "overflow-auto" : "").concat(AlbumSpacing(spacing))}>
-            <Image priority={true} quality={100} loading="eager" className={AlbumStyle(scaling)} src={link} width={width} height={height} />
+            <Image alt="image" priority={true} quality={100} loading="eager" className={AlbumStyle(scaling)} src={link} width={width} height={height} />
         </div>
         
     );

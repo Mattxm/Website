@@ -30,7 +30,7 @@ const Reader = () => {
     useEffect(() => {
         if (Loaded)
             localStorage.setItem("rhistory", JSON.stringify(History))
-    }, [History])
+    }, [History, Loaded])
 
     const CreateHistory = () => {
         if (Object.keys(History).length > 0){
@@ -109,7 +109,7 @@ const Reader = () => {
                             </Dialog.Title>
                             <div className="mt-2 text-secondary">
                                 <p className="">
-                                    Album Reader is an app that reformats Imgur albums with customizable settings, a page selector, and more, similar to other manga & comic reading apps.
+                                    Album Reader is an app that reformats Imgur albums with customizable settings, a page selector, and more! Similar to other manga & comic reading apps.
                                 </p>
                                 <br/>
                                 <p>
@@ -117,7 +117,7 @@ const Reader = () => {
                                 </p>
                                 <br/>
                                 <p>
-                                    Disclaimer: This app does not host any of the images itself. All images are supplied through Imgur's API. 
+                                    Disclaimer: This app does not host any of the images itself. All images are supplied through Imgur&apos;s API. 
                                 </p>
                             </div>
 
