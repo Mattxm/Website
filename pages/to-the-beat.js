@@ -9,28 +9,16 @@ const app = initializeApp(fbConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const scoresRef = collection(db, "scores");
-const scoresSnap = await getDocs(scoresRef)
+
 
 
 import { useEffect, useState } from "react";
-
-function ScoreHistory() {
-    return (
-        <>
-            a
-        </>
-    );
-};
+import { async } from '@firebase/util';
 
 const beat = () => {
-    const [user] = useAuthState(auth);
-
-
-    useEffect(() => {
-      console.log(scoresSnap)
-    }, [scoresSnap])
-    
+    /*
+    const [User] = useAuthState(auth);
+    const scoresRef = collection(db, "scores");
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider);
@@ -41,7 +29,7 @@ const beat = () => {
             <div className="min-h-screen bg-secondary text-white">
                 beat
                 <div id="playarea" className="bg-red-900 flex flex-col">
-                    {user ?
+                    {User ?
                     <div>
                         <button onClick={()=>auth.signOut()}>
                             sign out
@@ -56,13 +44,19 @@ const beat = () => {
                     }
                     prev stores
                     <div>
-                        {ScoreHistory()}
+                        
                     </div>
                 </div>
             </div>
         </>
         
     );
+    */
+   return (
+    <>
+        wip
+    </>
+   )
 }
 
 
