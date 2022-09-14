@@ -179,7 +179,7 @@
   max-width: 512px;
   max-height: 512px;
   display: grid;
-  background-color: gray;
+  background-color: rgb(244, 206, 94);
   grid-template-rows: repeat(21, 1fr);
   grid-template-columns: repeat(21, 1fr);
   overflow:hidden

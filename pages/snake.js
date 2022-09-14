@@ -167,7 +167,6 @@ const Snake = () => {
             switch(e.key){
                 case " ":
                     SnakeSpeed = 7;
-                    console.log(SnakeSpeed);
                     break
             }
         })
@@ -203,12 +202,10 @@ const Snake = () => {
                     break
                 case " ":
                     SnakeSpeed = 15
-                    console.log(SnakeSpeed);
                     break
 
             }
-            if (Direction.x !== 0 || Direction.y !== 0)
-                GameStarted = true;
+            GameStarted = true;
         })
         
     }, [])
@@ -221,7 +218,7 @@ const Snake = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="bg-primary h-screen w-screen flex justify-center items-center" >
-                <div id="snake-game" className="snake-game" >
+                <div id="snake-game" className="snake-game shadow-md border-secondary border-4" >
 
                 </div>
             </div>
