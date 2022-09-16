@@ -35,14 +35,14 @@ const Home = () => {
                   <h2>React / Next.js</h2>
                   <ul className="main-list text-base indent-4 list-inside">
                     <li className="project-entry "><Link href="/reader">Album Reader</Link></li>
-                    <li className="project-entry "><Link href="/snake">Snake</Link></li>
+                    <li className="project-entry "><Link href="/snake">Snake Game</Link></li>
                     {/* <li className="project-entry "><Link href="/to-the-beat">To The Beat</Link></li> */}
                   </ul>
 
                   <h2>Unreal Engine</h2>
                   <ul className="main-list text-base indent-4 list-disc list-inside">
                     <li className="project-entry "><a href="https://mattxm.itch.io/targeting-system">Targeting System</a></li>
-                    <li className="project-entry "><a href="https://mattxm.itch.io/barrier-down">Barrier Down</a></li>
+                    <li className="project-entry "><a href="https://mattxm.itch.io/barrier-down">Barrier Down (Brackey Game Jam 2021)</a></li>
                     <li className="project-entry "><a href="https://mattxm.itch.io/weather-machine">Weather Machine (Epic Mega Jam 2022)</a></li>
                   </ul>
                 </div>
