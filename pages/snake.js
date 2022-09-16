@@ -384,7 +384,7 @@ const Snake = () => {
                                 <p className="flex-1" >Eat Tail</p>
                                 <Switch checked={EatTail} onChange={setEatTail} 
                                 className={`${ EatTail ? ' bg-red-400' : 'bg-thirdary'} 
-                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
+                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors cursor-default `}
                                 >
                                     <span className="sr-only">Eat Tail</span>
                                     <span className={`${ EatTail ? 'translate-x-4' : 'translate-x-1'} 
@@ -397,7 +397,7 @@ const Snake = () => {
                                 <p className="flex-1" >Loop Edges</p>
                                 <Switch checked={LoopEdges} onChange={setLoopEdges} 
                                 className={`${ LoopEdges ? ' bg-red-400' : 'bg-thirdary'} 
-                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
+                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors cursor-default `}
                                 >
                                     <span className="sr-only">Eat Tail</span>
                                     <span className={`${ LoopEdges ? 'translate-x-4' : 'translate-x-1'} 
