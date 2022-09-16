@@ -176,10 +176,10 @@
 .snake-game{
   width: 100vmin;
   height: 100vmin;
-  max-width: 512px;
-  max-height: 512px;
+  max-width: 768px;
+  max-height: 768px;
   display: grid;
-  background-color: rgb(244, 206, 94);
+  background-color: rgb(255, 227, 142);
   grid-template-rows: repeat(21, 1fr);
   grid-template-columns: repeat(21, 1fr);
   overflow: hidden;
@@ -188,20 +188,27 @@
 .snake-game-overlay{
   width: 100vmin;
   height: 100vmin;
-  max-width: 512px;
-  max-height: 512px;
+  max-width: 768px;
+  max-height: 768px;
   overflow: hidden;
   font-size: xx-large;
   text-shadow: 2px 2px #565656;
 }
 
 .snake {
-  background-color: rgb(139, 252, 25);
   box-shadow: 5px 5px #565656;
   
 }
+
 .snaketop{
-  background-color: inherit;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-width: 2px;
+  border-color: #000;
+}
+
+.snakehead{
   position: relative;
   width: 100%;
   height: 100%;
