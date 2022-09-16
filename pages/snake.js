@@ -3,6 +3,7 @@ import React, {useState, useEffect, useRef, KeyboardEvent} from "react"
 import { Switch, RadioGroup } from '@headlessui/react'
 import useInterval from '../components/useInterval'
 import {RiSettings5Fill} from "react-icons/ri"
+import lerp from "../components/lerp"
 
 const Snake = () => {
     const Board = useRef(null)
@@ -83,10 +84,13 @@ const Snake = () => {
         ToRemove.forEach(c => {
             c.remove();
         })
-    
-        SnakeBody.forEach(s => {
+
+        let sbl = SnakeBody.length;
+        SnakeBody.forEach((s,i) => {
+            let c = lerp(40,75, i/sbl)
             const te = document.createElement('div')
-            te.classList.add("snaketop")
+            te.classList.add(i == 0 ? "snakehead" : "snaketop")
+            te.style.backgroundColor = `hsl(95deg,80%,${c}%)`
             const se = document.createElement('div')
             se.style.gridRowStart = s.y
             se.style.gridColumnStart = s.x
@@ -128,7 +132,7 @@ const Snake = () => {
             }
             if (res){
                 if (EatTail){
-                    for (let index = 1; index < c; index++) {
+                    for (let index = 1; index <= c; index++) {
                         NewSnake.pop()
                     }
                 }
