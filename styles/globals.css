@@ -196,8 +196,9 @@
 }
 
 .snake {
-  background-color: chartreuse;
+  background-color: rgb(139, 252, 25);
   box-shadow: 5px 5px #565656;
+  
 }
 .snaketop{
   background-color: inherit;
@@ -208,10 +209,20 @@
   border-color: #000;
 }
 
+.hard-shadow-sm{
+  filter:drop-shadow(2px 2px #565656);
+}
 
+.hard-shadow-md{
+  filter:drop-shadow(3px 3px #565656);
+}
+
+.hard-shadow-lg{
+  filter:drop-shadow(5px 5px #565656);
+}
 
 .food {
-  background-color: red;
+  background-color: rgb(255, 94, 94);
   border-radius: 100%;
   border: black;
   border-style: solid;
