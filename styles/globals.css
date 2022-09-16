@@ -192,7 +192,9 @@
   max-height: 768px;
   overflow: hidden;
   font-size: xx-large;
-  text-shadow: 2px 2px #565656;
+  font-weight: 600;
+  text-shadow: -1px -1px 0 #565656, 1px -1px 0 #565656, -1px 1px 0 #565656, 1px 1px 0 #565656, 2px 2px #565656
+
 }
 
 .snake {
