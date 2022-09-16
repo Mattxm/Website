@@ -293,7 +293,7 @@ const Snake = () => {
             <div className="bg-primary h-screen w-screen flex justify-center items-center" >
                 <div ref={Board} id="snake-game" className="snake-game shadow-md border-secondary border-4" >
                 </div>
-                <div className="fixed snake-game-overlay flex items-center justify-center">
+                <div className="absolute snake-game-overlay flex items-center justify-center">
                     {(!GameStarted && !OptionsOpen)  &&
                     <p className="text-xl text-left h-full pt-16 sm:text-2xl">
                         WASD or ↑←↓→ to Turn
