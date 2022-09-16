@@ -308,7 +308,7 @@ const Snake = () => {
                     {
                         (GamePaused || GameOver || !GameStarted) && 
                         <div className="absolute top-3 right-3" onClick={()=>{setOptionsOpen(!OptionsOpen)}}>
-                            <RiSettings5Fill className="hard-shadow-md hover:scale-105 transition-all ease-linear" size={75}/>
+                            <RiSettings5Fill className="hard-shadow-md hover:text-red-400 text-zinc-400 hover:scale-105 transition-all ease-linear outline-stroke" size={75}/>
                         </div>
                     }
                     {((GamePaused || GameOver) && !OptionsOpen) &&
@@ -318,35 +318,35 @@ const Snake = () => {
                         { GameOver && <p>Final Score: {SnakeBody.length}</p>}
                         <span className="pb-4"/>
                         {!GameOver && 
-                        <div onClick={()=> setGamePaused(false)} className="mb-4 w-48 bg-thirdary hover:bg-red-400 transition-colors ease-linear h-12 rounded-sm outline-2 hard-shadow-md outline-thirdary outline text-center" >
+                        <div onClick={()=> setGamePaused(false)} className="mb-4 w-48 bg-zinc-400 hover:bg-red-400 transition-colors ease-linear h-12 rounded-sm outline-2 hard-shadow-md outline-thirdary outline text-center" >
                             Resume
                         </div>
                         }
                         
-                        <div onClick={()=> RestartGame()} className="w-48 bg-thirdary hover:bg-red-400 transition-colors ease-linear h-12 rounded-sm outline-2 hard-shadow-md outline-thirdary outline text-center" >
+                        <div onClick={()=> RestartGame()} className="w-48 bg-zinc-400 hover:bg-red-400 transition-colors ease-linear h-12 rounded-sm outline-2 hard-shadow-md outline-thirdary outline text-center" >
                             Restart
                         </div>
                     </div>
                     }
                     {OptionsOpen &&
                     <div className="text-xl w-full h-full flex justify-center items-center">
-                        <div className='bg-thirdary bg-opacity-75 p-4 rounded-md'>
+                        <div className='bg-zinc-400 hard-shadow-md p-4 rounded-md outline outline-2 outline-thirdary '>
                             <p className="text-2xl mb-4 text-center">Settings</p>
                             <p>Snake Speed</p>
                             <RadioGroup value={SnakeSpeed} onChange={setSnakeSpeed} className="flex space-x-3">
                                 <RadioGroup.Option value={5}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} w-full bg-thirdary rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Slow</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} w-full rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Slow</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={7}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} w-full bg-thirdary rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Fair</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} w-full rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Fair</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={10}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} w-full bg-thirdary rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Fast</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} w-full rounded-sm px-1 hard-shadow-md transition-colors ease-linear`}>Fast</span>
                                     )}
                                 </RadioGroup.Option>
                             </RadioGroup>
@@ -355,27 +355,27 @@ const Snake = () => {
                             <RadioGroup value={SnakeGrowthRate} onChange={setSnakeGrowthRate} className="flex space-x-2 w-full">
                                 <RadioGroup.Option value={1}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''}  bg-thirdary rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>1</span>
+                                    <span className={`${checked ? 'bg-red-400' : 'bg-thirdary'} rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>1</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={2}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''}  bg-thirdary rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>2</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>2</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={3}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} bg-thirdary rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>3</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>3</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={4}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} bg-thirdary rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>4</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>4</span>
                                     )}
                                 </RadioGroup.Option>
                                 <RadioGroup.Option value={5}>
                                     {({ checked }) => (
-                                    <span className={`${checked ? 'bg-red-400' : ''} bg-thirdary rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>5</span>
+                                    <span className={`${checked ? 'bg-red-400' : ' bg-thirdary'} rounded-sm px-2 hard-shadow-md transition-colors ease-linear`}>5</span>
                                     )}
                                 </RadioGroup.Option>
                             </RadioGroup>
