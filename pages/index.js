@@ -35,6 +35,7 @@ const Home = () => {
                   <h2>React / Next.js</h2>
                   <ul className="main-list text-base indent-4 list-inside">
                     <li className="project-entry "><Link href="/reader">Album Reader</Link></li>
+                    <li className="project-entry "><Link href="/snake">Snake</Link></li>
                     {/* <li className="project-entry "><Link href="/to-the-beat">To The Beat</Link></li> */}
                   </ul>
 

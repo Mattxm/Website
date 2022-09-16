@@ -182,7 +182,17 @@
   background-color: rgb(244, 206, 94);
   grid-template-rows: repeat(21, 1fr);
   grid-template-columns: repeat(21, 1fr);
-  overflow:hidden
+  overflow: hidden;
+}
+
+.snake-game-overlay{
+  width: 100vmin;
+  height: 100vmin;
+  max-width: 512px;
+  max-height: 512px;
+  overflow: hidden;
+  font-size: xx-large;
+  text-shadow: 2px 2px #565656;
 }
 
 .snake {
