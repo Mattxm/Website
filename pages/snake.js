@@ -295,7 +295,7 @@ const Snake = () => {
                 </div>
                 <div className="fixed snake-game-overlay flex items-center justify-center">
                     {(!GameStarted && !OptionsOpen)  &&
-                    <p className="text-xl text-left h-full pt-16">
+                    <p className="text-xl text-left h-full pt-16 sm:text-2xl">
                         WASD or ↑←↓→ to Turn
                         <br/>
                         Space or Shift to Accelerate
@@ -308,7 +308,7 @@ const Snake = () => {
                     {
                         (GamePaused || GameOver || !GameStarted) && 
                         <div className="absolute top-3 right-3" onClick={()=>{setOptionsOpen(!OptionsOpen)}}>
-                            <RiSettings5Fill className="hard-shadow-md hover:scale-105 transition-all ease-linear" size={50}/>
+                            <RiSettings5Fill className="hard-shadow-md hover:scale-105 transition-all ease-linear" size={75}/>
                         </div>
                     }
                     {((GamePaused || GameOver) && !OptionsOpen) &&
@@ -329,34 +329,9 @@ const Snake = () => {
                     </div>
                     }
                     {OptionsOpen &&
-                    <div className="text-xl w-full h-full bg-thirdary bg-opacity-25 flex justify-center items-center">
-                        <div className=''>
-                            <div className="flex align-middle items-center" >
-                                <p className="flex-1" >Eat Tail</p>
-                                <Switch checked={EatTail} onChange={setEatTail} 
-                                className={`${ EatTail ? ' bg-red-400' : 'bg-thirdary'} 
-                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
-                                >
-                                    <span className="sr-only">Eat Tail</span>
-                                    <span className={`${ EatTail ? 'translate-x-4' : 'translate-x-1'} 
-                                    inline-block h-4 w-4 transform rounded-sm bg-white transition`}
-                                    />
-                                </Switch>
-                            </div>
-                            <br/>
-                            <div className="flex align-middle items-center" >
-                                <p className="flex-1" >Loop Edges</p>
-                                <Switch checked={LoopEdges} onChange={setLoopEdges} 
-                                className={`${ LoopEdges ? ' bg-red-400' : 'bg-thirdary'} 
-                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
-                                >
-                                    <span className="sr-only">Eat Tail</span>
-                                    <span className={`${ LoopEdges ? 'translate-x-4' : 'translate-x-1'} 
-                                    inline-block h-4 w-4 transform rounded-sm bg-white transition`}
-                                    />
-                                </Switch>
-                            </div>
-                            <br/>
+                    <div className="text-xl w-full h-full flex justify-center items-center">
+                        <div className='bg-thirdary bg-opacity-75 p-4 rounded-md'>
+                            <p className="text-2xl mb-4 text-center">Settings</p>
                             <p>Snake Speed</p>
                             <RadioGroup value={SnakeSpeed} onChange={setSnakeSpeed} className="flex space-x-3">
                                 <RadioGroup.Option value={5}>
@@ -404,6 +379,32 @@ const Snake = () => {
                                     )}
                                 </RadioGroup.Option>
                             </RadioGroup>
+                            <br/>
+                            <div className="flex align-middle items-center" >
+                                <p className="flex-1" >Eat Tail</p>
+                                <Switch checked={EatTail} onChange={setEatTail} 
+                                className={`${ EatTail ? ' bg-red-400' : 'bg-thirdary'} 
+                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
+                                >
+                                    <span className="sr-only">Eat Tail</span>
+                                    <span className={`${ EatTail ? 'translate-x-4' : 'translate-x-1'} 
+                                    inline-block h-4 w-4 transform rounded-sm bg-white transition`}
+                                    />
+                                </Switch>
+                            </div>
+                            <br/>
+                            <div className="flex align-middle items-center" >
+                                <p className="flex-1" >Loop Edges</p>
+                                <Switch checked={LoopEdges} onChange={setLoopEdges} 
+                                className={`${ LoopEdges ? ' bg-red-400' : 'bg-thirdary'} 
+                                relative inline-flex h-6 w-9 items-center rounded-sm hard-shadow-md transition-colors`}
+                                >
+                                    <span className="sr-only">Eat Tail</span>
+                                    <span className={`${ LoopEdges ? 'translate-x-4' : 'translate-x-1'} 
+                                    inline-block h-4 w-4 transform rounded-sm bg-white transition`}
+                                    />
+                                </Switch>
+                            </div>
 
                         </div>
                     </div>
